@@ -107,13 +107,13 @@ public class GroupController : ControllerBase
     }
 
 
-    [HttpGet("Show Group By Id")]
-    public async Task<IActionResult> GetGroupById(int groupId)
+    [HttpGet("Show Group By Name Search")]
+    public async Task<IActionResult> GetGroupByName(string groupName)
     {
         var group = await _context.Groups
             .Include(g => g.Users)
             .ThenInclude(u => u.Role)
-            .FirstOrDefaultAsync(g => g.GroupId == groupId);
+            .FirstOrDefaultAsync(g => g.GroupName == groupName);
 
         if (group == null)
         {
@@ -133,6 +133,7 @@ public class GroupController : ControllerBase
 
         return Ok(groupWithMembers);
     }
+
 
 
     [HttpGet("Group Info")]
