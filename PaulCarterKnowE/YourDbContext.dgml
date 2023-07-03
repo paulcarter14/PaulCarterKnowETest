@@ -9,37 +9,52 @@ SqlServer:ValueGenerationStrategy: IdentityColumn" Category="Model" Group="Expan
 RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
 <Node Id = "Role" Label="Role" Name="Role" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="Relational:TableName: Roles
 RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
-<Node Id = "Group.GroupId" Label="GroupId (int)" Name="GroupId" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="SqlServer:ValueGenerationStrategy: IdentityColumn" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "Group.Id" Label="Id (int)" Name="Id" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="SqlServer:ValueGenerationStrategy: IdentityColumn" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "Group.UserGroups" Label="UserGroups (*)" Name="UserGroups" Category="Navigation Collection" Type="List&lt;UserGroup&gt;"  Field="" Dependent="UserGroup" Principal="" Inverse="Group" PropertyAccessMode="PropertyAccessMode.Default" />
 <Node Id = "Group.Name" Label="Name (string)" Name="Name" Category="Property Required" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
-<Node Id = "Group.UserId" Label="UserId (int?)" Name="UserId" Category="Property Foreign" Type="int?" MaxLength="None" Field="nofield" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="True" IsRequired="False" IsIndexed="True" IsShadow="True" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
 <Node Id = "User" Label="User" Name="User" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="Relational:TableName: Users
 RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
-<Node Id = "Role.RoleId" Label="RoleId (int)" Name="RoleId" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="SqlServer:ValueGenerationStrategy: IdentityColumn" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "Role.Id" Label="Id (int)" Name="Id" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="SqlServer:ValueGenerationStrategy: IdentityColumn" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "Role.Users" Label="Users (*)" Name="Users" Category="Navigation Collection" Type="List&lt;User&gt;"  Field="" Dependent="User" Principal="" Inverse="Role" PropertyAccessMode="PropertyAccessMode.Default" />
 <Node Id = "Role.Name" Label="Name (string)" Name="Name" Category="Property Required" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
-<Node Id = "User" Label="User" Name="User" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="" Category="EntityType" Group="Expanded" />
+<Node Id = "UserGroup" Label="UserGroup" Name="UserGroup" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
 <Node Id = "User.Id" Label="Id (int)" Name="Id" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="SqlServer:ValueGenerationStrategy: IdentityColumn" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
-<Node Id = "User.Groups" Label="Groups (*)" Name="Groups" Category="Navigation Collection" Type="List&lt;Group&gt;"  Field="" Dependent="Group" Principal="" Inverse="" PropertyAccessMode="PropertyAccessMode.Default" />
-<Node Id = "User.Role" Label="Role (1)" Name="Role" Category="Navigation Property" Type="Role"  Field="" Dependent="" Principal="Role" Inverse="" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "User.Role" Label="Role (1)" Name="Role" Category="Navigation Property" Type="Role"  Field="" Dependent="" Principal="Role" Inverse="Users" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "User.UserGroups" Label="UserGroups (*)" Name="UserGroups" Category="Navigation Collection" Type="List&lt;UserGroup&gt;"  Field="" Dependent="UserGroup" Principal="" Inverse="User" PropertyAccessMode="PropertyAccessMode.Default" />
 <Node Id = "User.Name" Label="Name (string)" Name="Name" Category="Property Required" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
 <Node Id = "User.RoleId" Label="RoleId (int)" Name="RoleId" Category="Property Foreign" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="True" IsRequired="True" IsIndexed="True" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "UserGroup" Label="UserGroup" Name="UserGroup" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="" Category="EntityType" Group="Expanded" />
+<Node Id = "UserGroup.Id" Label="Id (int)" Name="Id" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="SqlServer:ValueGenerationStrategy: IdentityColumn" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "UserGroup.Group" Label="Group (1)" Name="Group" Category="Navigation Property" Type="Group"  Field="" Dependent="" Principal="Group" Inverse="UserGroups" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "UserGroup.User" Label="User (1)" Name="User" Category="Navigation Property" Type="User"  Field="" Dependent="" Principal="User" Inverse="UserGroups" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "UserGroup.GroupId" Label="GroupId (int)" Name="GroupId" Category="Property Foreign" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="True" IsRequired="True" IsIndexed="True" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "UserGroup.UserId" Label="UserId (int)" Name="UserId" Category="Property Foreign" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="True" IsRequired="True" IsIndexed="True" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
   </Nodes>
   <Links>
 <Link Source = "IModel" Target="Group" Category="Contains" />
 <Link Source = "IModel" Target="Role" Category="Contains" />
-<Link Source = "Group" Target="Group.GroupId" Category="Contains" />
-<Link Source="Group" Target="User" From="Group.UserId" To="User.Id" Name="Group -> User" Annotations="" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source = "Group" Target="Group.UserGroups" Category="Contains" />
+<Link Source = "Group" Target="Group.Id" Category="Contains" />
 <Link Source = "Group" Target="Group.Name" Category="Contains" />
-<Link Source = "Group" Target="Group.UserId" Category="Contains" />
 <Link Source = "IModel" Target="User" Category="Contains" />
-<Link Source = "Role" Target="Role.RoleId" Category="Contains" />
+<Link Source = "Role" Target="Role.Users" Category="Contains" />
+<Link Source = "Role" Target="Role.Id" Category="Contains" />
 <Link Source = "Role" Target="Role.Name" Category="Contains" />
-<Link Source = "IModel" Target="User" Category="Contains" />
-<Link Source = "User" Target="User.Groups" Category="Contains" />
+<Link Source = "IModel" Target="UserGroup" Category="Contains" />
 <Link Source = "User" Target="User.Role" Category="Contains" />
+<Link Source = "User" Target="User.UserGroups" Category="Contains" />
 <Link Source = "User" Target="User.Id" Category="Contains" />
-<Link Source="User" Target="Role" From="User.RoleId" To="Role.RoleId" Name="User -> Role" Annotations="" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source="User" Target="Role" From="User.RoleId" To="Role.Id" Name="User -> Role" Annotations="" IsUnique="False" Label="1:*" Category="Foreign Key" />
 <Link Source = "User" Target="User.Name" Category="Contains" />
 <Link Source = "User" Target="User.RoleId" Category="Contains" />
+<Link Source = "IModel" Target="UserGroup" Category="Contains" />
+<Link Source = "UserGroup" Target="UserGroup.Group" Category="Contains" />
+<Link Source = "UserGroup" Target="UserGroup.User" Category="Contains" />
+<Link Source = "UserGroup" Target="UserGroup.Id" Category="Contains" />
+<Link Source="UserGroup" Target="Group" From="UserGroup.GroupId" To="Group.Id" Name="UserGroup -> Group" Annotations="" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source="UserGroup" Target="User" From="UserGroup.UserId" To="User.Id" Name="UserGroup -> User" Annotations="" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source = "UserGroup" Target="UserGroup.GroupId" Category="Contains" />
+<Link Source = "UserGroup" Target="UserGroup.UserId" Category="Contains" />
   </Links>
   <Styles>
     <Style TargetType="Node" GroupLabel="EntityType" ValueLabel="True">
